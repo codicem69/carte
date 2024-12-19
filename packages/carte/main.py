@@ -9,6 +9,9 @@ class Package(GnrDboPackage):
                     
     def config_db(self, pkg):
         pass
+
+    def custom_type_money(self):
+        return dict(dtype='N',format='€ #,###.00')
         
 class Table(GnrDboTable):
     pass
