@@ -18,6 +18,8 @@ class View(BaseComponent):
     def th_query(self):
         return dict(column='nome', op='contains', val='')
 
+    def th_options(self):
+        return dict(partitioned=True)
 
 
 class Form(BaseComponent):
