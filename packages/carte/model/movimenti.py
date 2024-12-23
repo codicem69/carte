@@ -14,3 +14,20 @@ class Table(object):
                                                 columns='coalesce($entrate,0)-coalesce($uscite,0)',
                                                 where='$id=#THIS.id'),
                                     dtype='N',name_long='!![it]Saldo', format='€ #,###.00')
+
+    def trigger_onInserted(self,record=None):
+        self.aggiornaCarta(record)
+
+    def trigger_onUpdated(self,record=None,old_record=None):
+        self.aggiornaCarta(record)
+
+    def trigger_onDeleted(self,record=None):
+        if self.currentTrigger.parent:
+            return
+        self.aggiornaCarta(record)
+    
+    def aggiornaCarta(self,record):
+        carta_id = record['carta_id']
+        self.db.deferToCommit(self.db.table('carte.carta').ricalcolaSaldo,
+                                    carta_id=carta_id,
+                                    _deferredId=carta_id)

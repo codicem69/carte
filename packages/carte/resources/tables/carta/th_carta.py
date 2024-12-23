@@ -12,6 +12,8 @@ class View(BaseComponent):
         r.fieldcell('num_carta')
         r.fieldcell('proprietario_id')
         r.fieldcell('descrizione')
+        r.fieldcell('saldo',width='15em', 
+                range_alto='value>0',range_alto_style='color:black;font-weight:bold;',range_basso='value<0',range_basso_style='font-weight:bold;color:red;')
 
     def th_order(self):
         return 'banca_id'
