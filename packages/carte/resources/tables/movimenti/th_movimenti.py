@@ -15,7 +15,7 @@ class View(BaseComponent):
         r.fieldcell('uscite')
 
     def th_order(self):
-        return 'data'
+        return 'data:d'
 
     def th_query(self):
         return dict(column='carta_id', op='contains', val='')
@@ -36,7 +36,7 @@ class ViewFromMovimenti(BaseComponent):
                 range_alto='value>0',range_alto_style='color:black;font-weight:bold;',range_basso='value<0',range_basso_style='font-weight:bold;color:red;')
 
     def th_order(self):
-        return 'data'
+        return 'data:d'
 
     def th_query(self):
         return dict(column='carta_id', op='contains', val='')
