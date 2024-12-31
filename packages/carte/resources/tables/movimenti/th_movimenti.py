@@ -53,9 +53,9 @@ class ViewFromMovimenti(BaseComponent):
     #    ]
                 
     def th_top_toolbarsuperiore(self,top):
-        bar=top.slotToolbar('5,sections@anno,10,actions,resourceActions,15',
+        bar=top.slotToolbar('5,sections@anno,10,actions,resourceActions,5',
                         childname='superiore',_position='<bar',sections_anno_multivalue=True,
-                        sections_anno_multiButton=5)
+                        sections_anno_multiButton=10)
                         #,gradient_from='#999',gradient_to='#888')
         bar.actions.div('Actions')
     
