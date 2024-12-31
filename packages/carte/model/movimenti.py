@@ -14,7 +14,8 @@ class Table(object):
                                                 columns='coalesce($entrate,0)-coalesce($uscite,0)',
                                                 where='$id=#THIS.id'),
                                     dtype='N',name_long='!![it]Saldo', format='€ #,###.00')
-
+        tbl.formulaColumn('anno',"""to_char($data, :df)""", var_df='YYYY')
+        
     def trigger_onInserted(self,record=None):
         self.aggiornaCarta(record)
 
