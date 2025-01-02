@@ -64,8 +64,8 @@ class ViewFromMovimenti(BaseComponent):
         result = [dict(code='tutti',caption='!![it]Tutti')]
         tbl_mov=self.db.table('carte.movimenti')
         anno=tbl_mov.query(columns="""to_char($data, 'YYYY')""",group_by="""to_char($data, 'YYYY')""",where='@carta_id.agency_id=:ag_id',
-                           ag_id=self.db.currentEnv.get('current_agency_id')).fetch()
-        #print(x)
+                           ag_id=self.db.currentEnv.get('current_agency_id'),order_by="""to_char($data, 'YYYY')""").fetch()
+        
         for c in anno:
             if c[0] is not None:
                 result.append(dict(code=c[0],caption=c[0],
