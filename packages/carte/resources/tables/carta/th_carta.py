@@ -43,7 +43,7 @@ class Form(BaseComponent):
 
     def movimentiCarta(self,pane):
         pane.inlineTableHandler(relation='@mov_carta',
-                                viewResource='ViewFromMovimenti',extendedQuery=True,pbl_classes=True, liveUpdated=True,autoSave=True)
+                                viewResource='ViewFromMovimenti',extendedQuery=True,pbl_classes=True, liveUpdated=True)
         
         
 
